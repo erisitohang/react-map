@@ -28,8 +28,9 @@ function Pins(props) {
 
   return (
     <div>
-      {' '}
-      {passenger} {cars}{' '}
+      {''}
+      {passenger} {cars}
+      {''}
     </div>
   );
 }
