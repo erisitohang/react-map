@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.slider {
+  font-size: 14px;
+  line-height: 18px;
+  width: 284px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  margin: 24px;
+  padding: 12px 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  outline: none;
+  cursor: auto;
+}
+.slider .input input {
+  width: 100%;
+}
+.slider .input label {
+  text-transform: uppercase;
+  width: 50%;
+  margin-right: 10%;
+  color: #486865;
+  margin-bottom: 4px;
+}
