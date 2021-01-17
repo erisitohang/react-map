@@ -4,7 +4,7 @@ import Pins from './components/Pins';
 import Slider from './components/Slider';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const { REACT_APP_API_URI, REACT_APP_MAPGL_TOKEN } = process.env;
+const { REACT_APP_API_URI, REACT_APP_MAPBOX_ACCESS_TOKEN } = process.env;
 function App() {
   const latitude = 51.5049375;
   const longitude = -0.0964509;
@@ -41,7 +41,7 @@ function App() {
         {...viewport}
         onViewportChange={setViewport}
         mapStyle="mapbox://styles/mapbox/streets-v9"
-        mapboxApiAccessToken={REACT_APP_MAPGL_TOKEN}
+        mapboxApiAccessToken={REACT_APP_MAPBOX_ACCESS_TOKEN}
       >
         <Pins data={data} latitude={latitude} longitude={longitude} />
       </MapGL>
