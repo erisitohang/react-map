@@ -18,12 +18,21 @@ function App() {
   const [viewport, setViewport] = useState(mapOptions);
   const [data, setData] = useState({ pickup_eta: 0, drivers: [] });
   const [count, setCount] = useState(10);
+  const [fetching, setFetching] = useState(false);
   const END_POINT = `${REACT_APP_API_URI}/drivers?latitude=${latitude}&longitude=${longitude}&count=${count}`;
 
   useEffect(() => {
+    setFetching(true);
     fetch(END_POINT)
       .then((resp) => resp.json())
-      .then((json) => setData(json));
+      .then((json) => {
+        setFetching(false);
+        setData(json);
+      })
+      .catch((error) => {
+        setFetching(false);
+        console.log('error');
+      });
   }, [END_POINT, count]);
 
   return (
@@ -34,9 +43,18 @@ function App() {
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxApiAccessToken={REACT_APP_MAPGL_TOKEN}
       >
-        <Pins data={data} count={count} />
+        <Pins
+          data={data}
+          count={count}
+          latitude={latitude}
+          longitude={longitude}
+        />
       </MapGL>
-      <Slider count={count} onChange={(value) => setCount(value)} />
+      <Slider
+        disable={fetching}
+        count={count}
+        onChange={(value) => setCount(value)}
+      />
     </div>
   );
 }

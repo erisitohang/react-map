@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 function Slider(props) {
-  const { count } = props;
+  const { count, disable } = props;
   const handleChange = (event) => {
     props.onChange(event.target.value);
   };
@@ -18,6 +18,7 @@ function Slider(props) {
           step={1}
           onChange={() => null}
           onMouseUp={(event) => handleChange(event)}
+          disabled={disable}
         />
       </div>
     </div>
