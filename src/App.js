@@ -31,7 +31,7 @@ function App() {
       })
       .catch((error) => {
         setFetching(false);
-        console.log('error');
+        console.log(error);
       });
   }, [END_POINT, count]);
 
@@ -43,12 +43,7 @@ function App() {
         mapStyle="mapbox://styles/mapbox/streets-v9"
         mapboxApiAccessToken={REACT_APP_MAPGL_TOKEN}
       >
-        <Pins
-          data={data}
-          count={count}
-          latitude={latitude}
-          longitude={longitude}
-        />
+        <Pins data={data} latitude={latitude} longitude={longitude} />
       </MapGL>
       <Slider
         disable={fetching}
